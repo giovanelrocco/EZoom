@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 
 class Banner extends Model
 {
-    // protected $DBGroup = 'ezoom';
     protected $table      = 'banner';
     protected $primaryKey = 'id';
 
@@ -22,7 +21,21 @@ class Banner extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    protected $validationRules    = [];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
+    protected $validationRules    = [
+        'titulo'     => 'required',
+        'texto'      => 'required',
+        'imagemUrl'  => 'required'
+    ];
+
+    protected $validationMessages = [
+        'titulo'       => [
+            'required' => 'Voce precisa inserir o Titulo'
+        ],
+        'texto'        => [
+            'required' => 'Voce precisa inserir o Texto'
+        ],
+        'imagemUrl'    => [
+            'required' => 'Voce precisa inserir a Imagem'
+        ]
+    ];
 }
