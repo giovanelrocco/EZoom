@@ -24,11 +24,16 @@ class Api extends \CodeIgniter\Controller
 
 	public function createBanner()
 	{
+		helper('filesystem');
+
 		$data = $this->request->getPost();
-		$erro = array();
+		$foto = $this->request->getFile('foto');
 
 		$banner = new \App\Models\Banner();
 		try{
+			$fotoNome = $foto->getRandomName();
+			$foto->move(ROOTPATH . '/public/uploads', $fotoNome);
+			$data['imagemUrl'] = '/uploads/' . $foto->getName();
 			if($banner->save($data)){
 				$this->setResponse(array(
 					'sucesso' => 'Banner Cadastrado com Sucesso',
@@ -82,7 +87,7 @@ class Api extends \CodeIgniter\Controller
 
 		try{
 			$banner = new \App\Models\Banner();
-			$deleteResult = $banner->delete($idBanner);
+			$deleteResult = $banner->delete($id);
 			$this->setResponse(array(
 				'sucesso' => 'Banner Deletado com Sucesso',
 				'erro' => 0,

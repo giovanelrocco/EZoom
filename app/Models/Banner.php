@@ -24,7 +24,6 @@ class Banner extends Model
     protected $validationRules    = [
         'titulo'     => 'required',
         'texto'      => 'required',
-        'imagemUrl'  => 'required'
     ];
 
     protected $validationMessages = [
@@ -33,9 +32,6 @@ class Banner extends Model
         ],
         'texto'        => [
             'required' => 'Voce precisa inserir o Texto'
-        ],
-        'imagemUrl'    => [
-            'required' => 'Voce precisa inserir a Imagem'
         ]
     ];
 }

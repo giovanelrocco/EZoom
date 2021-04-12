@@ -3,9 +3,8 @@ CREATE TABLE banner (
     titulo VARCHAR(126),
     texto VARCHAR(252),
     imagemUrl VARCHAR(252),
-    created_at VARCHAR(20),
-    updated_at VARCHAR(20),
-    deleted_at VARCHAR(20),
-
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
+    deleted_at TIMESTAMP,
     PRIMARY KEY (id)
 );

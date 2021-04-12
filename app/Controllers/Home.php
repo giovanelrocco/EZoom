@@ -6,11 +6,9 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		$banner = new \App\Models\Banner();
+		$banners = $banner->find();
+		return view('home', array('banners' => $banners));
 	}
 
-	public function test()
-	{
-		return view('test');
-	}
 }
